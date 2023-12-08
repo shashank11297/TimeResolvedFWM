@@ -1,0 +1,16 @@
+Mathematica 12.3.1 Kernel for Linux x86 (64-bit)
+Copyright 1988-2021 Wolfram Research, Inc.
+
+In[1]:= 
+In[2]:= 
+FrontEndObject::notavail: 
+   A front end is not available; certain operations require a front end.
+
+SetDirectory::badfile: 
+   The specified argument $Failed should be a valid string or File.
+
+In[3]:= 
+In[4]:= 
+Out[4]= datafile.csv
+
+In[5]:= 

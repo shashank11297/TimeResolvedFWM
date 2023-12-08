@@ -1,0 +1,549 @@
+slurmstepd-n11: error: Unable to create TMPDIR [/tmp/user/19060]: Permission denied
+slurmstepd-n11: error: Setting TMPDIR to /tmp
+3 arguments
+k
+544
+WholeNode
+Found WholeNode
+Set SLURM_TASKS_PER_NODE to 24
+sourcing /opt/intel/oneapi/setvars.sh
+ 
+:: WARNING: setvars.sh has already been run. Skipping re-execution.
+   To force a re-execution of setvars.sh, use the '--force' option.
+   Using '--force' can result in excessive use of your environment variables.
+  
+usage: source setvars.sh [--force] [--config=file] [--help] [...]
+  --force        Force setvars.sh to re-run, doing so may overload environment.
+  --config=file  Customize env vars using a setvars.sh configuration file.
+  --help         Display this help message and exit.
+  ...            Additional args are passed to individual env/vars.sh scripts
+                 and should follow this script's arguments.
+  
+  Some POSIX shells do not accept command-line options. In that case, you can pass
+  command-line options via the SETVARS_ARGS environment variable. For example:
+  
+  $ SETVARS_ARGS="ia32 --config=config.txt" ; export SETVARS_ARGS
+  $ . path/to/setvars.sh
+  
+  The SETVARS_ARGS environment variable is cleared on exiting setvars.sh.
+  
+starting srun /home/Tools/bin/kvasp544 > output
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd-n11: error: *** JOB 401676 ON n11 CANCELLED AT 2023-11-30T12:03:52 ***
+slurmstepd-n11: error: *** STEP 401676.0 ON n11 CANCELLED AT 2023-11-30T12:03:52 ***
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+kvasp544           00000000015C1C3B  Unknown               Unknown  Unknown
+libpthread-2.27.s  0000154FFE742980  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   0000154FFF666752  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   0000154FFF664D82  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   0000154FFF6637F9  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   0000154FFEED5A5F  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   0000154FFEEF4A60  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   0000154FFEECC7EC  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   0000154FFF00F387  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   0000154FFEE6A6E1  PMPI_Allreduce        Unknown  Unknown
+libmpifort.so.12.  000015500066DA50  mpi_allreduce_        Unknown  Unknown
+kvasp544           0000000000412B3F  Unknown               Unknown  Unknown
+kvasp544           000000000086D774  Unknown               Unknown  Unknown
+kvasp544           0000000000A841C3  Unknown               Unknown  Unknown
+kvasp544           0000000001406B50  Unknown               Unknown  Unknown
+kvasp544           000000000040AD02  Unknown               Unknown  Unknown
+libc-2.27.so       0000154FFDFC2C87  __libc_start_main     Unknown  Unknown
+kvasp544           000000000040ABEA  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+kvasp544           00000000015C1C3B  Unknown               Unknown  Unknown
+libpthread-2.27.s  0000145F51A4E980  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   0000145F52981333  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   0000145F529794EE  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   0000145F5296F7D0  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   0000145F521E1A5F  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   0000145F52200A60  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   0000145F521D87EC  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   0000145F5231B387  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   0000145F521766E1  PMPI_Allreduce        Unknown  Unknown
+libmpifort.so.12.  0000145F53979A50  mpi_allreduce_        Unknown  Unknown
+kvasp544           0000000000412B3F  Unknown               Unknown  Unknown
+kvasp544           000000000086D774  Unknown               Unknown  Unknown
+kvasp544           0000000000A841C3  Unknown               Unknown  Unknown
+kvasp544           0000000001406B50  Unknown               Unknown  Unknown
+kvasp544           000000000040AD02  Unknown               Unknown  Unknown
+libc-2.27.so       0000145F512CEC87  __libc_start_main     Unknown  Unknown
+kvasp544           000000000040ABEA  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+kvasp544           00000000015C1C3B  Unknown               Unknown  Unknown
+libpthread-2.27.s  00001515E24D3980  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   00001515E33F7752  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   00001515E33F5D82  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   00001515E33F47F9  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   00001515E2C66A5F  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   00001515E2C85A60  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   00001515E2C5D7EC  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   00001515E2DA0387  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   00001515E2BFB6E1  PMPI_Allreduce        Unknown  Unknown
+libmpifort.so.12.  00001515E43FEA50  mpi_allreduce_        Unknown  Unknown
+kvasp544           0000000000412B3F  Unknown               Unknown  Unknown
+kvasp544           000000000086D774  Unknown               Unknown  Unknown
+kvasp544           0000000000A841C3  Unknown               Unknown  Unknown
+kvasp544           0000000001406B50  Unknown               Unknown  Unknown
+kvasp544           000000000040AD02  Unknown               Unknown  Unknown
+libc-2.27.so       00001515E1D53C87  __libc_start_main     Unknown  Unknown
+kvasp544           000000000040ABEA  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+kvasp544           00000000015C1C3B  Unknown               Unknown  Unknown
+libpthread-2.27.s  00001487933DF980  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   0000148794312333  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014879430A4EE  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   00001487943007D0  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   0000148793B72A5F  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   0000148793B91A60  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   0000148793B697EC  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   0000148793CAC387  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   0000148793B076E1  PMPI_Allreduce        Unknown  Unknown
+libmpifort.so.12.  000014879530AA50  mpi_allreduce_        Unknown  Unknown
+kvasp544           0000000000412B3F  Unknown               Unknown  Unknown
+kvasp544           000000000086D774  Unknown               Unknown  Unknown
+kvasp544           0000000000A841C3  Unknown               Unknown  Unknown
+kvasp544           0000000001406B50  Unknown               Unknown  Unknown
+kvasp544           000000000040AD02  Unknown               Unknown  Unknown
+libc-2.27.so       0000148792C5FC87  __libc_start_main     Unknown  Unknown
+kvasp544           000000000040ABEA  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+kvasp544           00000000015C1C3B  Unknown               Unknown  Unknown
+libpthread-2.27.s  0000150E3E779980  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   0000150E3F6AC346  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   0000150E3F6A44EE  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   0000150E3F69A7D0  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   0000150E3EF0CA5F  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   0000150E3EF2BA60  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   0000150E3EF037EC  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   0000150E3F046387  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   0000150E3EEA16E1  PMPI_Allreduce        Unknown  Unknown
+libmpifort.so.12.  0000150E406A4A50  mpi_allreduce_        Unknown  Unknown
+kvasp544           0000000000412B3F  Unknown               Unknown  Unknown
+kvasp544           000000000086D774  Unknown               Unknown  Unknown
+kvasp544           0000000000A841C3  Unknown               Unknown  Unknown
+kvasp544           0000000001406B50  Unknown               Unknown  Unknown
+kvasp544           000000000040AD02  Unknown               Unknown  Unknown
+libc-2.27.so       0000150E3DFF9C87  __libc_start_main     Unknown  Unknown
+kvasp544           000000000040ABEA  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+kvasp544           00000000015C1C3B  Unknown               Unknown  Unknown
+libpthread-2.27.s  000014D547214980  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014D548147333  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014D54813F4EE  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014D5481357D0  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014D5479A7A5F  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014D5479C6A60  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014D54799E7EC  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014D547AE1387  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014D54793C6E1  PMPI_Allreduce        Unknown  Unknown
+libmpifort.so.12.  000014D54913FA50  mpi_allreduce_        Unknown  Unknown
+kvasp544           0000000000412B3F  Unknown               Unknown  Unknown
+kvasp544           000000000086D774  Unknown               Unknown  Unknown
+kvasp544           0000000000A841C3  Unknown               Unknown  Unknown
+kvasp544           0000000001406B50  Unknown               Unknown  Unknown
+kvasp544           000000000040AD02  Unknown               Unknown  Unknown
+libc-2.27.so       000014D546A94C87  __libc_start_main     Unknown  Unknown
+kvasp544           000000000040ABEA  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+kvasp544           00000000015C1C3B  Unknown               Unknown  Unknown
+libpthread-2.27.s  000014CE5CAC5980  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014CE5D9E9752  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014CE5D9E7D82  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014CE5D9E67F9  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014CE5D258A5F  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014CE5D277A60  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014CE5D24F7EC  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014CE5D392387  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014CE5D1ED6E1  PMPI_Allreduce        Unknown  Unknown
+libmpifort.so.12.  000014CE5E9F0A50  mpi_allreduce_        Unknown  Unknown
+kvasp544           0000000000412B3F  Unknown               Unknown  Unknown
+kvasp544           000000000086D774  Unknown               Unknown  Unknown
+kvasp544           0000000000A841C3  Unknown               Unknown  Unknown
+kvasp544           0000000001406B50  Unknown               Unknown  Unknown
+kvasp544           000000000040AD02  Unknown               Unknown  Unknown
+libc-2.27.so       000014CE5C345C87  __libc_start_main     Unknown  Unknown
+kvasp544           000000000040ABEA  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+kvasp544           00000000015C1C3B  Unknown               Unknown  Unknown
+libpthread-2.27.s  0000146100FAD980  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   0000146101ED1752  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   0000146101ECFD82  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   0000146101ECE7F9  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   0000146101740A5F  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014610175FA60  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   00001461017377EC  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014610187A387  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   00001461016D56E1  PMPI_Allreduce        Unknown  Unknown
+libmpifort.so.12.  0000146102ED8A50  mpi_allreduce_        Unknown  Unknown
+kvasp544           0000000000412B3F  Unknown               Unknown  Unknown
+kvasp544           000000000086D774  Unknown               Unknown  Unknown
+kvasp544           0000000000A841C3  Unknown               Unknown  Unknown
+kvasp544           0000000001406B50  Unknown               Unknown  Unknown
+kvasp544           000000000040AD02  Unknown               Unknown  Unknown
+libc-2.27.so       000014610082DC87  __libc_start_main     Unknown  Unknown
+kvasp544           000000000040ABEA  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+kvasp544           00000000015C1C3B  Unknown               Unknown  Unknown
+libpthread-2.27.s  00001487792F6980  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014877A21A752  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014877A218D82  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014877A2177F9  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   0000148779A89A5F  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   0000148779AA8A60  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   0000148779A807EC  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   0000148779BC3387  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   0000148779A1E6E1  PMPI_Allreduce        Unknown  Unknown
+libmpifort.so.12.  000014877B221A50  mpi_allreduce_        Unknown  Unknown
+kvasp544           0000000000412B3F  Unknown               Unknown  Unknown
+kvasp544           000000000086D774  Unknown               Unknown  Unknown
+kvasp544           0000000000A841C3  Unknown               Unknown  Unknown
+kvasp544           0000000001406B50  Unknown               Unknown  Unknown
+kvasp544           000000000040AD02  Unknown               Unknown  Unknown
+libc-2.27.so       0000148778B76C87  __libc_start_main     Unknown  Unknown
+kvasp544           000000000040ABEA  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+kvasp544           00000000015C1C3B  Unknown               Unknown  Unknown
+libpthread-2.27.s  000014F781A83980  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014F7829A7752  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014F7829A5D82  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014F7829A47F9  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014F782216A5F  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014F782235A60  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014F78220D7EC  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014F782350387  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014F7821AB6E1  PMPI_Allreduce        Unknown  Unknown
+libmpifort.so.12.  000014F7839AEA50  mpi_allreduce_        Unknown  Unknown
+kvasp544           0000000000412B3F  Unknown               Unknown  Unknown
+kvasp544           000000000086D774  Unknown               Unknown  Unknown
+kvasp544           0000000000A841C3  Unknown               Unknown  Unknown
+kvasp544           0000000001406B50  Unknown               Unknown  Unknown
+kvasp544           000000000040AD02  Unknown               Unknown  Unknown
+libc-2.27.so       000014F781303C87  __libc_start_main     Unknown  Unknown
+kvasp544           000000000040ABEA  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+kvasp544           00000000015C1C3B  Unknown               Unknown  Unknown
+libpthread-2.27.s  000014F5E72D0980  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014F5E8203346  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014F5E81FB4EE  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014F5E81F17D0  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014F5E7A63A5F  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014F5E7A82A60  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014F5E7A5A7EC  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014F5E7B9D387  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014F5E79F86E1  PMPI_Allreduce        Unknown  Unknown
+libmpifort.so.12.  000014F5E91FBA50  mpi_allreduce_        Unknown  Unknown
+kvasp544           0000000000412B3F  Unknown               Unknown  Unknown
+kvasp544           000000000086D774  Unknown               Unknown  Unknown
+kvasp544           0000000000A841C3  Unknown               Unknown  Unknown
+kvasp544           0000000001406B50  Unknown               Unknown  Unknown
+kvasp544           000000000040AD02  Unknown               Unknown  Unknown
+libc-2.27.so       000014F5E6B50C87  __libc_start_main     Unknown  Unknown
+kvasp544           000000000040ABEA  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+kvasp544           00000000015C1C3B  Unknown               Unknown  Unknown
+libpthread-2.27.s  0000149069DFE980  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014906AAE7B0A  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014906A636D19  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014906A636A56  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014906ACB38C0  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014906A7F85E8  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014906A563072  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014906AACE0FB  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014906A62605C  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014906A783689  PMPI_Finalize         Unknown  Unknown
+libmpifort.so.12.  000014906BD33C1A  mpi_finalize_         Unknown  Unknown
+kvasp544           0000000000419F52  Unknown               Unknown  Unknown
+kvasp544           000000000086DDE7  Unknown               Unknown  Unknown
+kvasp544           0000000000A841C3  Unknown               Unknown  Unknown
+kvasp544           0000000001406B50  Unknown               Unknown  Unknown
+kvasp544           000000000040AD02  Unknown               Unknown  Unknown
+libc-2.27.so       000014906967EC87  __libc_start_main     Unknown  Unknown
+kvasp544           000000000040ABEA  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+kvasp544           00000000015C1C3B  Unknown               Unknown  Unknown
+libpthread-2.27.s  0000151518053980  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   0000151518F77752  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   0000151518F75D82  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   0000151518F747F9  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   00001515187E6A5F  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   0000151518805A60  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   00001515187DD7EC  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   0000151518920387  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000015151877B6E1  PMPI_Allreduce        Unknown  Unknown
+libmpifort.so.12.  0000151519F7EA50  mpi_allreduce_        Unknown  Unknown
+kvasp544           0000000000412B3F  Unknown               Unknown  Unknown
+kvasp544           000000000086D774  Unknown               Unknown  Unknown
+kvasp544           0000000000A841C3  Unknown               Unknown  Unknown
+kvasp544           0000000001406B50  Unknown               Unknown  Unknown
+kvasp544           000000000040AD02  Unknown               Unknown  Unknown
+libc-2.27.so       00001515178D3C87  __libc_start_main     Unknown  Unknown
+kvasp544           000000000040ABEA  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+kvasp544           00000000015C1C3B  Unknown               Unknown  Unknown
+libpthread-2.27.s  00001539D6E2A980  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   00001539D7D4E752  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   00001539D7D4CD82  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   00001539D7D4B7F9  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   00001539D75BDA5F  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   00001539D75DCA60  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   00001539D75B47EC  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   00001539D76F7387  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   00001539D75526E1  PMPI_Allreduce        Unknown  Unknown
+libmpifort.so.12.  00001539D8D55A50  mpi_allreduce_        Unknown  Unknown
+kvasp544           0000000000412B3F  Unknown               Unknown  Unknown
+kvasp544           000000000086D774  Unknown               Unknown  Unknown
+kvasp544           0000000000A841C3  Unknown               Unknown  Unknown
+kvasp544           0000000001406B50  Unknown               Unknown  Unknown
+kvasp544           000000000040AD02  Unknown               Unknown  Unknown
+libc-2.27.so       00001539D66AAC87  __libc_start_main     Unknown  Unknown
+kvasp544           000000000040ABEA  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+kvasp544           00000000015C1C3B  Unknown               Unknown  Unknown
+libpthread-2.27.s  000014ECBDB76980  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014ECBE3AEA4E  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014ECBEA2B8C0  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014ECBE5705E8  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014ECBE2DB072  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014ECBE8460FB  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014ECBE39E05C  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014ECBE4FB689  PMPI_Finalize         Unknown  Unknown
+libmpifort.so.12.  000014ECBFAABC1A  mpi_finalize_         Unknown  Unknown
+kvasp544           0000000000419F52  Unknown               Unknown  Unknown
+kvasp544           000000000086DDE7  Unknown               Unknown  Unknown
+kvasp544           0000000000A841C3  Unknown               Unknown  Unknown
+kvasp544           0000000001406B50  Unknown               Unknown  Unknown
+kvasp544           000000000040AD02  Unknown               Unknown  Unknown
+libc-2.27.so       000014ECBD3F6C87  __libc_start_main     Unknown  Unknown
+kvasp544           000000000040ABEA  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+kvasp544           00000000015C1C3B  Unknown               Unknown  Unknown
+libpthread-2.27.s  0000149DE5E13980  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   0000149DE6D37742  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   0000149DE6D35D82  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   0000149DE6D347F9  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   0000149DE65A6A5F  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   0000149DE65C5A60  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   0000149DE659D7EC  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   0000149DE66E0387  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   0000149DE653B6E1  PMPI_Allreduce        Unknown  Unknown
+libmpifort.so.12.  0000149DE7D3EA50  mpi_allreduce_        Unknown  Unknown
+kvasp544           0000000000412B3F  Unknown               Unknown  Unknown
+kvasp544           000000000086D774  Unknown               Unknown  Unknown
+kvasp544           0000000000A841C3  Unknown               Unknown  Unknown
+kvasp544           0000000001406B50  Unknown               Unknown  Unknown
+kvasp544           000000000040AD02  Unknown               Unknown  Unknown
+libc-2.27.so       0000149DE5693C87  __libc_start_main     Unknown  Unknown
+kvasp544           000000000040ABEA  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+kvasp544           00000000015C1C3B  Unknown               Unknown  Unknown
+libpthread-2.27.s  000014B9F79E5980  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014B9F8918346  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014B9F89104EE  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014B9F89067D0  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014B9F8178A5F  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014B9F8197A60  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014B9F816F7EC  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014B9F82B2387  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014B9F810D6E1  PMPI_Allreduce        Unknown  Unknown
+libmpifort.so.12.  000014B9F9910A50  mpi_allreduce_        Unknown  Unknown
+kvasp544           0000000000412B3F  Unknown               Unknown  Unknown
+kvasp544           000000000086D774  Unknown               Unknown  Unknown
+kvasp544           0000000000A841C3  Unknown               Unknown  Unknown
+kvasp544           0000000001406B50  Unknown               Unknown  Unknown
+kvasp544           000000000040AD02  Unknown               Unknown  Unknown
+libc-2.27.so       000014B9F7265C87  __libc_start_main     Unknown  Unknown
+kvasp544           000000000040ABEA  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+kvasp544           00000000015C1C3B  Unknown               Unknown  Unknown
+libpthread-2.27.s  00001509640EE980  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   0000150965012752  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   0000150965010D82  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000015096500F7F9  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   0000150964881A5F  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   00001509648A0A60  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   00001509648787EC  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   00001509649BB387  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   00001509648166E1  PMPI_Allreduce        Unknown  Unknown
+libmpifort.so.12.  0000150966019A50  mpi_allreduce_        Unknown  Unknown
+kvasp544           0000000000412B3F  Unknown               Unknown  Unknown
+kvasp544           000000000086D774  Unknown               Unknown  Unknown
+kvasp544           0000000000A841C3  Unknown               Unknown  Unknown
+kvasp544           0000000001406B50  Unknown               Unknown  Unknown
+kvasp544           000000000040AD02  Unknown               Unknown  Unknown
+libc-2.27.so       000015096396EC87  __libc_start_main     Unknown  Unknown
+kvasp544           000000000040ABEA  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+kvasp544           00000000015C1C3B  Unknown               Unknown  Unknown
+libpthread-2.27.s  000014C741BCE980  Unknown               Unknown  Unknown
+libc-2.27.so       000014C74154E907  epoll_wait            Unknown  Unknown
+libtcp-fi.so       000014C66110D191  Unknown               Unknown  Unknown
+libtcp-fi.so       000014C6611131EE  Unknown               Unknown  Unknown
+librxm-fi.so       000014C660A083FC  Unknown               Unknown  Unknown
+librxm-fi.so       000014C660A132B9  Unknown               Unknown  Unknown
+librxm-fi.so       000014C660A133C9  Unknown               Unknown  Unknown
+librxm-fi.so       000014C660A2DFBD  Unknown               Unknown  Unknown
+librxm-fi.so       000014C660A2DF47  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014C7428B7B30  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014C742406D19  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014C742406A56  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014C742A838C0  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014C7425C85E8  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014C742333072  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014C74289E0FB  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014C7423F605C  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014C742553689  PMPI_Finalize         Unknown  Unknown
+libmpifort.so.12.  000014C743B03C1A  mpi_finalize_         Unknown  Unknown
+kvasp544           0000000000419F52  Unknown               Unknown  Unknown
+kvasp544           000000000086DDE7  Unknown               Unknown  Unknown
+kvasp544           0000000000A841C3  Unknown               Unknown  Unknown
+kvasp544           0000000001406B50  Unknown               Unknown  Unknown
+kvasp544           000000000040AD02  Unknown               Unknown  Unknown
+libc-2.27.so       000014C74144EC87  __libc_start_main     Unknown  Unknown
+kvasp544           000000000040ABEA  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+kvasp544           00000000015C1C3B  Unknown               Unknown  Unknown
+libpthread-2.27.s  000014D1565EE980  Unknown               Unknown  Unknown
+libc-2.27.so       000014D155F6E907  epoll_wait            Unknown  Unknown
+libtcp-fi.so       000014D075B2D191  Unknown               Unknown  Unknown
+libtcp-fi.so       000014D075B331EE  Unknown               Unknown  Unknown
+librxm-fi.so       000014D0754283FC  Unknown               Unknown  Unknown
+librxm-fi.so       000014D0754332B9  Unknown               Unknown  Unknown
+librxm-fi.so       000014D0754333C9  Unknown               Unknown  Unknown
+librxm-fi.so       000014D07544DFBD  Unknown               Unknown  Unknown
+librxm-fi.so       000014D07544DF47  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014D1572D7B30  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014D156E26D19  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014D156E26A56  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014D1574A38C0  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014D156FE85E8  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014D156D53072  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014D1572BE0FB  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014D156E1605C  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014D156F73689  PMPI_Finalize         Unknown  Unknown
+libmpifort.so.12.  000014D158523C1A  mpi_finalize_         Unknown  Unknown
+kvasp544           0000000000419F52  Unknown               Unknown  Unknown
+kvasp544           000000000086DDE7  Unknown               Unknown  Unknown
+kvasp544           0000000000A841C3  Unknown               Unknown  Unknown
+kvasp544           0000000001406B50  Unknown               Unknown  Unknown
+kvasp544           000000000040AD02  Unknown               Unknown  Unknown
+libc-2.27.so       000014D155E6EC87  __libc_start_main     Unknown  Unknown
+kvasp544           000000000040ABEA  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+kvasp544           00000000015C1C3B  Unknown               Unknown  Unknown
+libpthread-2.27.s  000014AC7E578980  Unknown               Unknown  Unknown
+libc-2.27.so       000014AC7DEF8907  epoll_wait            Unknown  Unknown
+libtcp-fi.so       000014AB9DAB7191  Unknown               Unknown  Unknown
+libtcp-fi.so       000014AB9DABD1EE  Unknown               Unknown  Unknown
+librxm-fi.so       000014AB9D3B23FC  Unknown               Unknown  Unknown
+librxm-fi.so       000014AB9D3BD2B9  Unknown               Unknown  Unknown
+librxm-fi.so       000014AB9D3BD3C9  Unknown               Unknown  Unknown
+librxm-fi.so       000014AB9D3D7FBD  Unknown               Unknown  Unknown
+librxm-fi.so       000014AB9D3D7F47  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014AC7F261B30  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014AC7EDB0D19  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014AC7EDB0A56  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014AC7F42D8C0  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014AC7EF725E8  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014AC7ECDD072  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014AC7F2480FB  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014AC7EDA005C  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014AC7EEFD689  PMPI_Finalize         Unknown  Unknown
+libmpifort.so.12.  000014AC804ADC1A  mpi_finalize_         Unknown  Unknown
+kvasp544           0000000000419F52  Unknown               Unknown  Unknown
+kvasp544           000000000086DDE7  Unknown               Unknown  Unknown
+kvasp544           0000000000A841C3  Unknown               Unknown  Unknown
+kvasp544           0000000001406B50  Unknown               Unknown  Unknown
+kvasp544           000000000040AD02  Unknown               Unknown  Unknown
+libc-2.27.so       000014AC7DDF8C87  __libc_start_main     Unknown  Unknown
+kvasp544           000000000040ABEA  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+kvasp544           00000000015C1C3B  Unknown               Unknown  Unknown
+libpthread-2.27.s  000014DE09B60980  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014DE0AA8474E  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014DE0AA82D82  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014DE0AA817F9  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014DE0A2F3A5F  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014DE0A312A60  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014DE0A2EA7EC  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014DE0A42D387  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014DE0A2886E1  PMPI_Allreduce        Unknown  Unknown
+libmpifort.so.12.  000014DE0BA8BA50  mpi_allreduce_        Unknown  Unknown
+kvasp544           0000000000412B3F  Unknown               Unknown  Unknown
+kvasp544           000000000086D774  Unknown               Unknown  Unknown
+kvasp544           0000000000A841C3  Unknown               Unknown  Unknown
+kvasp544           0000000001406B50  Unknown               Unknown  Unknown
+kvasp544           000000000040AD02  Unknown               Unknown  Unknown
+libc-2.27.so       000014DE093E0C87  __libc_start_main     Unknown  Unknown
+kvasp544           000000000040ABEA  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+kvasp544           00000000015C1C3B  Unknown               Unknown  Unknown
+libpthread-2.27.s  000014E278418980  Unknown               Unknown  Unknown
+libc-2.27.so       000014E277D98907  epoll_wait            Unknown  Unknown
+libtcp-fi.so       000014E197957191  Unknown               Unknown  Unknown
+libtcp-fi.so       000014E19795D1EE  Unknown               Unknown  Unknown
+librxm-fi.so       000014E1972523FC  Unknown               Unknown  Unknown
+librxm-fi.so       000014E19725D2B9  Unknown               Unknown  Unknown
+librxm-fi.so       000014E19725D3C9  Unknown               Unknown  Unknown
+librxm-fi.so       000014E197277FBD  Unknown               Unknown  Unknown
+librxm-fi.so       000014E197277F47  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014E279101B30  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014E278C50D19  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014E278C50A56  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014E2792CD8C0  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014E278E125E8  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014E278B7D072  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014E2790E80FB  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014E278C4005C  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014E278D9D689  PMPI_Finalize         Unknown  Unknown
+libmpifort.so.12.  000014E27A34DC1A  mpi_finalize_         Unknown  Unknown
+kvasp544           0000000000419F52  Unknown               Unknown  Unknown
+kvasp544           000000000086DDE7  Unknown               Unknown  Unknown
+kvasp544           0000000000A841C3  Unknown               Unknown  Unknown
+kvasp544           0000000001406B50  Unknown               Unknown  Unknown
+kvasp544           000000000040AD02  Unknown               Unknown  Unknown
+libc-2.27.so       000014E277C98C87  __libc_start_main     Unknown  Unknown
+kvasp544           000000000040ABEA  Unknown               Unknown  Unknown
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+kvasp544           00000000015C1C3B  Unknown               Unknown  Unknown
+libpthread-2.27.s  000014EDD238A980  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014EDD32AE752  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014EDD32ACD82  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014EDD32AB7F9  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014EDD2B1DA5F  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014EDD2B3CA60  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014EDD2B147EC  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014EDD2C57387  Unknown               Unknown  Unknown
+libmpi.so.12.0.0   000014EDD2AB26E1  PMPI_Allreduce        Unknown  Unknown
+libmpifort.so.12.  000014EDD42B5A50  mpi_allreduce_        Unknown  Unknown
+kvasp544           0000000000412B3F  Unknown               Unknown  Unknown
+kvasp544           000000000086D774  Unknown               Unknown  Unknown
+kvasp544           0000000000A841C3  Unknown               Unknown  Unknown
+kvasp544           0000000001406B50  Unknown               Unknown  Unknown
+kvasp544           000000000040AD02  Unknown               Unknown  Unknown
+libc-2.27.so       000014EDD1C0AC87  __libc_start_main     Unknown  Unknown
+kvasp544           000000000040ABEA  Unknown               Unknown  Unknown

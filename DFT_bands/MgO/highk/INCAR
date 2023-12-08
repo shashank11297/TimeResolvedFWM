@@ -1,0 +1,35 @@
+SYSTEM = Mg1O1
+
+ Startparameter for this Run:
+   ISTART =      1    job   : 0-new  1-cont  2-samecut
+   NWRITE = 0
+
+ Electronic Relaxation
+   PREC   = Acc
+   NELM   =     40;   
+   EDIFF  =   1E-06   stopping-criterion for ELM
+
+   NEDOS  = 1401
+
+ Ionic Relaxation
+   ALGO = Normal # more reliable. Try V for faster
+LREAL = F
+NSW = 0
+ISIF = 0
+   IBRION = 2
+   POTIM = 0.25
+
+LHFCALC = .TRUE.
+METAGGA = SCAN
+
+ DOS related values:
+ISMEAR = -5
+SIGMA = 0.0
+
+LWAVE = F
+LCHARG = F
+
+NCORE = 4
+KPAR = 2
+NSIM = 4
+LPLANE = T

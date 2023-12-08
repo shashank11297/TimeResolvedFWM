@@ -1,0 +1,4 @@
+timeRange = Range[-150, 150, 1];
+SetDirectory[NotebookDirectory[]];
+(*Export["~/num_cal/CO2_molecule/four_level_model/config_4/datafile.csv", timeRange]*)
+Export["datafile.csv", timeRange]

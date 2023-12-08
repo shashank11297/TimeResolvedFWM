@@ -1,0 +1,178 @@
+Mathematica 12.3.1 Kernel for Linux x86 (64-bit)
+Copyright 1988-2021 Wolfram Research, Inc.
+
+In[1]:= 
+In[2]:= 
+FrontEndObject::notavail: 
+   A front end is not available; certain operations require a front end.
+
+SetDirectory::badfile: 
+   The specified argument $Failed should be a valid string or File.
+
+In[3]:= In[3]:= In[3]:= 
+In[4]:= 
+In[5]:= 
+In[6]:= 
+Out[6]= {4.73746, Null}
+
+In[7]:= 
+In[8]:= 
+In[9]:= 
+In[10]:= In[10]:= In[10]:= 
+In[11]:= In[11]:=          
+In[12]:= 
+In[13]:= 
+In[14]:= In[14]:= 
+In[15]:= In[15]:= 
+In[16]:= In[16]:= 
+In[17]:= In[17]:= 
+In[18]:= In[18]:= 
+In[19]:= In[19]:= In[19]:= In[19]:= 
+In[20]:= In[20]:= 
+In[21]:= In[21]:= 
+Out[21]= 10.
+
+In[22]:= In[22]:= 
+In[23]:= In[23]:= 
+In[24]:= 
+In[25]:= 
+In[26]:= 
+In[27]:= 
+In[28]:= In[28]:= 
+In[29]:= In[29]:= 
+In[30]:= In[30]:= 
+Out[30]= {24.8808, Null}
+
+In[31]:= In[31]:= 
+In[32]:= In[32]:= 
+In[33]:= In[33]:= 
+In[34]:= 
+In[35]:= In[35]:= 
+In[36]:= 
+In[37]:= 
+Out[37]= {7.15878, Null}
+
+In[38]:= 
+In[39]:= 
+In[40]:= In[40]:= 
+In[41]:= 
+In[42]:= 
+Out[42]= {7.8949, Null}
+
+In[43]:= 
+In[44]:= 
+In[45]:= In[45]:= 
+In[46]:= 
+In[47]:= 
+Out[47]= {21.8464, Null}
+
+In[48]:= 
+In[49]:= In[49]:= In[49]:= 
+In[50]:= In[50]:= 
+In[51]:= 
+In[52]:= 
+Out[52]= {7.04688, Null}
+
+In[53]:= 
+In[54]:= 
+In[55]:= In[55]:= 
+In[56]:= 
+In[57]:= 
+Out[57]= {7.72014, Null}
+
+In[58]:= 
+In[59]:= 
+In[60]:= In[60]:= 
+In[61]:= 
+In[62]:= 
+Out[62]= {22.0615, Null}
+
+In[63]:= 
+In[64]:= In[64]:= In[64]:= 
+In[65]:= In[65]:= 
+In[66]:= 
+In[67]:= 
+Out[67]= {19.3462, Null}
+
+In[68]:= 
+In[69]:= 
+In[70]:= In[70]:= 
+In[71]:= 
+In[72]:= 
+Out[72]= {7.70357, Null}
+
+In[73]:= 
+In[74]:= 
+In[75]:= In[75]:= 
+In[76]:= 
+In[77]:= 
+Out[77]= {7.63997, Null}
+
+In[78]:= 
+In[79]:= In[79]:= In[79]:= 
+In[80]:= In[80]:= 
+In[81]:= 
+In[82]:= 
+Out[82]= {19.5988, Null}
+
+In[83]:= 
+In[84]:= 
+In[85]:= In[85]:= 
+In[86]:= 
+In[87]:= 
+Out[87]= {7.82798, Null}
+
+In[88]:= 
+In[89]:= 
+In[90]:= In[90]:= 
+In[91]:= 
+In[92]:= 
+Out[92]= {7.84405, Null}
+
+In[93]:= 
+In[94]:= In[94]:= In[94]:= 
+In[95]:= In[95]:= 
+In[96]:= 
+In[97]:= 
+Out[97]= {7.17356, Null}
+
+In[98]:= 
+In[99]:= 
+In[100]:= In[100]:= 
+In[101]:= 
+In[102]:= 
+Out[102]= {22.1542, Null}
+
+In[103]:= 
+In[104]:= 
+In[105]:= In[105]:= 
+In[106]:= 
+In[107]:= 
+Out[107]= {7.58178, Null}
+
+In[108]:= 
+In[109]:= In[109]:= In[109]:= 
+In[110]:= In[110]:= 
+In[111]:= 
+In[112]:= 
+Out[112]= {7.00248, Null}
+
+In[113]:= 
+In[114]:= 
+In[115]:= In[115]:= 
+In[116]:= 
+In[117]:= 
+Out[117]= {23.8313, Null}
+
+In[118]:= 
+In[119]:= 
+In[120]:= In[120]:= 
+In[121]:= 
+In[122]:= 
+Out[122]= {7.64202, Null}
+
+In[123]:= 
+In[124]:= In[124]:= In[124]:= In[124]:= 
+In[125]:= 
+In[126]:= 
+In[127]:= In[127]:= 

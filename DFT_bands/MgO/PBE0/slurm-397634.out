@@ -1,0 +1,9 @@
+slurmstepd-n15: error: Unable to create TMPDIR [/tmp/user/19060]: Permission denied
+slurmstepd-n15: error: Setting TMPDIR to /tmp
+3 arguments
+k
+541
+WholeNode
+Found WholeNode
+Set SLURM_TASKS_PER_NODE to 40
+starting srun /home/Tools/bin/kvasp541 > output

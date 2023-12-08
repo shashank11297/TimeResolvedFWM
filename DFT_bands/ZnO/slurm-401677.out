@@ -1,0 +1,48 @@
+3 arguments
+k
+54
+WholeNode
+Found WholeNode
+Set SLURM_TASKS_PER_NODE to 40
+starting srun /home/Tools/bin/kvasp54 > output
+slurmstepd-n14: error: execve(): /home/Tools/bin/kvasp54: No such file or directory
+slurmstepd-n14: error: execve(): /home/Tools/bin/kvasp54: No such file or directory
+slurmstepd-n14: error: execve(): /home/Tools/bin/kvasp54: No such file or directory
+slurmstepd-n14: error: execve(): /home/Tools/bin/kvasp54: No such file or directory
+slurmstepd-n14: error: execve(): /home/Tools/bin/kvasp54: No such file or directory
+slurmstepd-n14: error: execve(): /home/Tools/bin/kvasp54: No such file or directory
+slurmstepd-n14: error: execve(): /home/Tools/bin/kvasp54: No such file or directory
+slurmstepd-n14: error: execve(): /home/Tools/bin/kvasp54: No such file or directory
+slurmstepd-n14: error: execve(): /home/Tools/bin/kvasp54: No such file or directory
+slurmstepd-n14: error: execve(): /home/Tools/bin/kvasp54: No such file or directory
+slurmstepd-n14: error: execve(): /home/Tools/bin/kvasp54: No such file or directory
+slurmstepd-n14: error: execve(): /home/Tools/bin/kvasp54: No such file or directory
+slurmstepd-n14: error: execve(): /home/Tools/bin/kvasp54: No such file or directory
+slurmstepd-n14: error: execve(): /home/Tools/bin/kvasp54: No such file or directory
+slurmstepd-n14: error: execve(): /home/Tools/bin/kvasp54: No such file or directory
+slurmstepd-n14: error: execve(): /home/Tools/bin/kvasp54: No such file or directory
+slurmstepd-n14: error: execve(): /home/Tools/bin/kvasp54: No such file or directory
+slurmstepd-n14: error: execve(): /home/Tools/bin/kvasp54: No such file or directory
+slurmstepd-n14: error: execve(): /home/Tools/bin/kvasp54: No such file or directory
+slurmstepd-n14: error: execve(): /home/Tools/bin/kvasp54: No such file or directory
+slurmstepd-n14: error: execve(): /home/Tools/bin/kvasp54: No such file or directory
+slurmstepd-n14: error: execve(): /home/Tools/bin/kvasp54: No such file or directory
+slurmstepd-n14: error: execve(): /home/Tools/bin/kvasp54: No such file or directory
+slurmstepd-n14: error: execve(): /home/Tools/bin/kvasp54: No such file or directory
+slurmstepd-n14: error: execve(): /home/Tools/bin/kvasp54: No such file or directory
+slurmstepd-n14: error: execve(): /home/Tools/bin/kvasp54: No such file or directory
+slurmstepd-n14: error: execve(): /home/Tools/bin/kvasp54: No such file or directory
+slurmstepd-n14: error: execve(): /home/Tools/bin/kvasp54: No such file or directory
+slurmstepd-n14: error: execve(): /home/Tools/bin/kvasp54: No such file or directory
+slurmstepd-n14: error: execve(): /home/Tools/bin/kvasp54: No such file or directory
+slurmstepd-n14: error: execve(): /home/Tools/bin/kvasp54: No such file or directory
+slurmstepd-n14: error: execve(): /home/Tools/bin/kvasp54: No such file or directory
+slurmstepd-n14: error: execve(): /home/Tools/bin/kvasp54: No such file or directory
+slurmstepd-n14: error: execve(): /home/Tools/bin/kvasp54: No such file or directory
+slurmstepd-n14: error: execve(): /home/Tools/bin/kvasp54: No such file or directory
+slurmstepd-n14: error: execve(): /home/Tools/bin/kvasp54: No such file or directory
+slurmstepd-n14: error: execve(): /home/Tools/bin/kvasp54: No such file or directory
+slurmstepd-n14: error: execve(): /home/Tools/bin/kvasp54: No such file or directory
+slurmstepd-n14: error: execve(): /home/Tools/bin/kvasp54: No such file or directory
+slurmstepd-n14: error: execve(): /home/Tools/bin/kvasp54: No such file or directory
+srun: error: n14: tasks 0-39: Exited with exit code 2

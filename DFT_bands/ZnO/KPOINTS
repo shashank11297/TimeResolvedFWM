@@ -1,0 +1,5 @@
+Automatic mesh
+0
+Gamma  # option auto # set via svasp
+18 18 10   # svasp/vasp_kpoints: prec =50
+0. 0. 0.
