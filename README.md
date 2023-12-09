@@ -4,4 +4,4 @@ The aim of this project is to numerically calculate the 3rd order microscopic cu
 
 ## DFT_band directory
 
-THis
+This directrory contains the calculation of Density functional theory calculation to calculate the band structure of MgO and ZnO.
