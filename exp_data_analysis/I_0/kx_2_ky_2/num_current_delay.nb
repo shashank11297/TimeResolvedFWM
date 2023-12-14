@@ -1,0 +1,203 @@
+\[Omega]0 = 2.35;(*carrier wave frequency in rad/fs*)
+SetDirectory[NotebookDirectory[]];
+
+(*Gate data*)
+gatedata = Import["~/num_cal/Pulse Data/Gate_ETemporal.dat", "Table"];
+gate1TimeDomain = gatedata[[All, 1]];
+(* gate1Efield = Interpolation[Transpose[{gate1TimeDomain, gatedata[[All, 2]]*Exp[I*gatedata[[All, 3]]]}]];
+gate1Avector[t_] := -NIntegrate[gate1Efield[x]*Exp[I*\[Omega]0*x], {x, Min[gate1TimeDomain], t}, Method -> {"LevinRule", "LevinFunctions" -> {"ExpRelated"}}];
+gate1TimeRange = Range[Min[gate1TimeDomain], Max[gate1TimeDomain], 0.1];
+AbsoluteTiming[gate1Adata = ParallelMap[gate1Avector[#] &, gate1TimeRange];] *)
+gateInputdata = ToExpression[Import["gate_data.csv", "CSV"]];
+gate1TimeRange = gateInputdata[[All,1]];
+gate1Aenvelopdata = gateInputdata[[All,2]];
+gate1Aenvelopfn = Interpolation[Transpose[{gate1TimeRange, gate1Aenvelopdata}]];
+gate1Afull[t_] := Piecewise[{{0.0, t < Min[gate1TimeDomain]}, {gate1Aenvelopfn[t], Min[gate1TimeDomain] <= t <= Max[gate1TimeDomain]}, {0.0, t > Max[gate1TimeDomain]}}]
+
+(*Probe data*)
+probedata = Import["~/num_cal/Pulse Data/Probe_ETemporal.dat", "Table"];
+probeTimeDomain = probedata[[All, 1]];
+(* probeEfield = Interpolation[Transpose[{probeTimeDomain, probedata[[All, 	2]]*Exp[I*probedata[[All, 3]]]}]];
+probeAvector[t_] := -NIntegrate[probeEfield[x]*Exp[I*\[Omega]0*x], {x, Min[probeTimeDomain], t}, Method -> {"LevinRule", "LevinFunctions" -> {"ExpRelated"}, "Points" -> 2}];
+probeTimeRange = Range[Min[probeTimeDomain], Max[probeTimeDomain], 0.1];
+probeAdata = ParallelMap[probeAvector[#] &, probeTimeRange]; *)
+probeInputdata = ToExpression[Import["probe_data.csv", "CSV"]];
+probeTimeRange = probeInputdata[[All,1]];
+probeAenvelopdata = probeInputdata[[All,2]];
+probeAenvelopfn = Interpolation[Transpose[{probeTimeRange, probeAenvelopdata}]];
+probeAfull[t_] := Piecewise[{{0.0, t < Min[probeTimeDomain]}, {probeAenvelopfn[t], Min[probeTimeDomain] <= t <= Max[probeTimeDomain]}, {0.0, t > Max[probeTimeDomain]}}];
+
+
+(*Band structure Modulation due to Laser pulses*)
+
+eAmpgate = (Sqrt[2/(8.85*10^-12*3*10^8)*(1*10^12)/10^-4]/(5.1422067476*10^11));(*Converting Laser intensity from 1 TW/cm^2 \
+to electric field amplitude in a.u.*)
+eAmpprobe =(*(30*10^12)/(3.51*10^16)*)(Sqrt[2/(8.85*10^-12*3*10^8)*(1*10^12)/10^-4]/(5.1422067476*10^11));(*Converting Laser intensity from 1 TW/cm^2 \
+to electric field amplitude in a.u.*)
+mCB = 0.369; mVB = 6.416; \[CapitalDelta] = 7.77/27.21;(*Energy is converted from eV to a.u.*)
+
+\[Epsilon]CB[px_, py_, pz_] := \[CapitalDelta]*(1 + (px^2 + py^2 + pz^2)/(2*mCB*\[CapitalDelta]))
+
+\[Epsilon]VB[px_, py_, pz_] := -\[CapitalDelta]*((px^2 + py^2 + pz^2)/(2*mVB*\[CapitalDelta]))
+
+pxNew[p0x_, t_, \[Tau]_] := p0x + Re[1/Sqrt[2]*eAmpgate*gate1Afull[t - \[Tau]]*Exp[I*\[Omega]0*(t - \[Tau])]*41](*41 is multiplied to convert fs to a.u. i.e. 1fs = 41 a.u.*)
+
+pyNew[p0y_, t_, \[Tau]_] := p0y + Re[(1/Sqrt[2]*eAmpgate*gate1Afull[t - \[Tau]]*Exp[I*\[Omega]0*(t - \[Tau])] + eAmpprobe*probeAfull[t]*Exp[I*\[Omega]0*t])*41]
+
+pzNew[p0z_, t_] := p0z
+
+
+
+(*Kubo Formula*)
+
+sk = 101;
+
+\[Tau] = (sk*0.2)-10.2
+
+\[HBar] = 0.658;(*Value of \[HBar] in eV fs*)
+
+ktx = 2/100;
+kty = 2/100;
+ktz = 0;
+gap = \[Epsilon]CB[ktx, kty, ktz] - \[Epsilon]VB[ktx, kty, ktz];
+\[CapitalOmega][t_, \[Tau]_] := 1/\[HBar] 27.21*(\[Epsilon]CB[pxNew[ktx, t, \[Tau]], pyNew[kty, t, \[Tau]], ktz] - \[Epsilon]VB[pxNew[ktx, t, \[Tau]], pyNew[kty, t, \[Tau]], ktz] - gap)
+
+(*Calculating the total phase that will go into the integral. *)
+
+phase[t_, \[Tau]_] := Exp[I*NIntegrate[\[CapitalOmega][h, \[Tau]], {h, -\[Infinity], t}, Method -> "LocalAdaptive"]]
+
+phaseData = Quiet[ParallelMap[phase[#, \[Tau]] &, Range[-200, 200, 1]]]; // AbsoluteTiming
+
+f = Interpolation[Transpose[{Range[-200, 200, 1], phaseData}]];
+
+phaseFunc[t_] := Exp[I*(27.21*gap)/\[HBar]*t]*Piecewise[{{f[-200], t < -200}, {f[200], t > 200}, {f[t], True}}];
+
+(*Term 1*)
+timeRange = Range[-150, 150, 1];
+
+(*Integral 1*)
+int1[t2_] := 
+ Quiet[(-I)*NIntegrate[gate1Afull[t1 - \[Tau]]*phaseFunc[t1]*Exp[I*\[Omega]0*(t1 - \[Tau])], {t1, -\[Infinity], t2}, Method -> {"LocalAdaptive"}]];
+AbsoluteTiming[dataint1 = ParallelMap[int1[#] &, timeRange];]
+int1funcinterpolation = Interpolation[Transpose[{timeRange, dataint1}]];
+int1func[x_] = Piecewise[{{0, x < -150  || x > 150},{int1funcinterpolation[x], True}}];
+
+(*Integral 2*)
+int2[t3_] := 
+ Quiet[(-I)*NIntegrate[gate1Afull[t2 - \[Tau]]\[Conjugate]*int1func[t2]*phaseFunc[t2]\[Conjugate]*Exp[-I*\[Omega]0*(t2 - \[Tau])], {t2, -\[Infinity], t3}, Method -> "LocalAdaptive"]];
+AbsoluteTiming[dataint2 = ParallelMap[int2[#] &, timeRange];]
+int2funcinterpolation = Interpolation[Transpose[{timeRange, dataint2}]];
+int2func[x_] = Piecewise[{{0.0, x < -150}, {int2funcinterpolation[x], -150 <= x <= 150}, {Chop[int2funcinterpolation[150], 10^-6], x > 150}}];
+
+(*Integral 3*)
+int3[t_] := Quiet[(-I)*NIntegrate[probeAfull[t3]*int2func[t3]*phaseFunc[t3]*Exp[I*\[Omega]0*t3], {t3, -\[Infinity], t}, Method -> "LocalAdaptive"]*phaseFunc[t]\[Conjugate]];
+AbsoluteTiming[dataint3 = ParallelMap[int3[#] &, timeRange];]
+term1envelop = 0.5*dataint3*Exp[-I*\[Omega]0*timeRange];
+
+
+(*Term 2*)
+
+(*Integral 1*)
+int1[t2_] := Quiet[(-I)*NIntegrate[gate1Afull[t1 - \[Tau]]\[Conjugate]*phaseFunc[t1]*Exp[-I*\[Omega]0*(t1 - \[Tau])], {t1, -\[Infinity], t2}, Method -> {"LocalAdaptive"}]];
+AbsoluteTiming[dataint1 = ParallelMap[int1[#] &, timeRange];]
+int1funcinterpolation = Interpolation[Transpose[{timeRange, dataint1}]];
+int1func[x_] = Piecewise[{{0, x < -150  || x > 150},{int1funcinterpolation[x], True}}];
+
+(*Integral 2*)
+int2[t3_] := Quiet[(-I)*NIntegrate[gate1Afull[t2 - \[Tau]]*int1func[t2]*phaseFunc[t2]\[Conjugate]*Exp[I*\[Omega]0*(t2 - \[Tau])], {t2, -\[Infinity], t3}, Method -> "LocalAdaptive"]];
+AbsoluteTiming[dataint2 = ParallelMap[int2[#] &, timeRange];]
+int2funcinterpolation = Interpolation[Transpose[{timeRange, dataint2}]];
+int2func[x_] = Piecewise[{{0.0, x < -150}, {int2funcinterpolation[x], -150 <= x <= 150}, {Chop[int2funcinterpolation[150], 10^-6], x > 150}}];
+
+(*Integral 3*)
+int3[t_] := Quiet[(-I)*NIntegrate[probeAfull[t3]*int2func[t3]*phaseFunc[t3]*Exp[I*\[Omega]0*t3], {t3, -\[Infinity], t}, Method -> "LocalAdaptive"]*phaseFunc[t]\[Conjugate]];
+AbsoluteTiming[dataint3 = ParallelMap[int3[#] &, timeRange];]
+term2envelop = 0.5*dataint3*Exp[-I*\[Omega]0*timeRange];
+
+
+(*Term 3*)
+
+(*Integral 1*)
+int1[t2_] := Quiet[(-I)*NIntegrate[probeAfull[t1]*phaseFunc[t1]*Exp[I*\[Omega]0*t1], {t1, -\[Infinity], t2}, Method -> {"LocalAdaptive"}]];
+AbsoluteTiming[dataint1 = ParallelMap[int1[#] &, timeRange];]
+int1funcinterpolation = Interpolation[Transpose[{timeRange, dataint1}]];
+int1func[x_] = Piecewise[{{0, x < -150  || x > 150},{int1funcinterpolation[x], True}}];
+
+(*Integral 2*)
+int2[t3_] := Quiet[(-I)*NIntegrate[gate1Afull[t2 - \[Tau]]*int1func[t2]*phaseFunc[t2]\[Conjugate]*Exp[I*\[Omega]0*(t2 - \[Tau])], {t2, -\[Infinity], t3}, Method -> "LocalAdaptive"]];
+AbsoluteTiming[dataint2 = ParallelMap[int2[#] &, timeRange];]
+int2funcinterpolation = Interpolation[Transpose[{timeRange, dataint2}]];
+int2func[x_] = Piecewise[{{0.0, x < -150}, {int2funcinterpolation[x], -150 <= x <= 150}, {Chop[int2funcinterpolation[150], 10^-6], x > 150}}];
+
+(*Integral 3*)
+int3[t_] := Quiet[(-I)*NIntegrate[gate1Afull[t3 - \[Tau]]\[Conjugate]*int2func[t3]*phaseFunc[t3]*Exp[-I*\[Omega]0*(t3 - \[Tau])], {t3, -\[Infinity], t}, Method -> "LocalAdaptive"]*phaseFunc[t]\[Conjugate]];
+AbsoluteTiming[dataint3 = ParallelMap[int3[#] &, timeRange];]
+term3envelop = 0.5*dataint3*Exp[-I*\[Omega]0*timeRange];
+
+
+(*Term 4*)
+
+(*Integral 1*)
+int1[t2_] := Quiet[(-I)*NIntegrate[probeAfull[t1]*phaseFunc[t1]*Exp[I*\[Omega]0*t1], {t1, -\[Infinity], t2}, Method -> {"LocalAdaptive"}]];
+AbsoluteTiming[dataint1 = ParallelMap[int1[#] &, timeRange];]
+int1funcinterpolation = Interpolation[Transpose[{timeRange, dataint1}]];
+int1func[x_] = Piecewise[{{0, x < -150  || x > 150},{int1funcinterpolation[x], True}}];
+
+(*Integral 2*)
+int2[t3_] := Quiet[(-I)*NIntegrate[gate1Afull[t2 - \[Tau]]\[Conjugate]*int1func[t2]*phaseFunc[t2]\[Conjugate]*Exp[-I*\[Omega]0*(t2 - \[Tau])], {t2, -\[Infinity], t3}, Method -> "LocalAdaptive"]];
+AbsoluteTiming[dataint2 = ParallelMap[int2[#] &, timeRange];]
+int2funcinterpolation = Interpolation[Transpose[{timeRange, dataint2}]];
+int2func[x_] = Piecewise[{{0.0, x < -150}, {int2funcinterpolation[x], -150 <= x <= 150}, {Chop[int2funcinterpolation[150], 10^-6], x > 150}}];
+
+(*Integral 3*)
+int3[t_] := Quiet[(-I)*NIntegrate[gate1Afull[t3 - \[Tau]]*int2func[t3]*phaseFunc[t3]*Exp[I*\[Omega]0*(t3 - \[Tau])], {t3, -\[Infinity], t}, Method -> "LocalAdaptive"]*phaseFunc[t]\[Conjugate]];
+AbsoluteTiming[dataint3 = ParallelMap[int3[#] &, timeRange];]
+term4envelop = 0.5*dataint3*Exp[-I*\[Omega]0*timeRange];
+
+
+(*Term 5*)
+
+(*Integral 1*)
+int1[t2_] := Quiet[(-I)*NIntegrate[gate1Afull[t1 - \[Tau]]*phaseFunc[t1]*Exp[I*\[Omega]0*(t1 - \[Tau])], {t1, -\[Infinity], t2}, Method -> {"LocalAdaptive"}]];
+AbsoluteTiming[dataint1 = ParallelMap[int1[#] &, timeRange];]
+int1funcinterpolation = Interpolation[Transpose[{timeRange, dataint1}]];
+int1func[x_] = Piecewise[{{0, x < -150  || x > 150},{int1funcinterpolation[x], True}}];
+
+(*Integral 2*)
+int2[t3_] := Quiet[(-I)*NIntegrate[probeAfull[t2]*int1func[t2]*phaseFunc[t2]\[Conjugate]*Exp[I*\[Omega]0*t2], {t2, -\[Infinity], t3}, Method -> "LocalAdaptive"]];
+AbsoluteTiming[dataint2 = ParallelMap[int2[#] &, timeRange];]
+int2funcinterpolation = Interpolation[Transpose[{timeRange, dataint2}]];
+int2func[x_] = Piecewise[{{0.0, x < -150}, {int2funcinterpolation[x], -150 <= x <= 150}, {Chop[int2funcinterpolation[150], 10^-6], x > 150}}];
+
+(*Integral 3*)
+int3[t_] := Quiet[(-I)*NIntegrate[gate1Afull[t3 - \[Tau]]\[Conjugate]*int2func[t3]*phaseFunc[t3]*Exp[-I*\[Omega]0*(t3 - \[Tau])], {t3, -\[Infinity], t}, Method -> "LocalAdaptive"]*phaseFunc[t]\[Conjugate]];
+AbsoluteTiming[dataint3 = ParallelMap[int3[#] &, timeRange];]
+term5envelop = 0.5*dataint3*Exp[-I*\[Omega]0*timeRange];
+
+
+(*Term 6*)
+
+(*Integral 1*)
+int1[t2_] := Quiet[(-I)*NIntegrate[gate1Afull[t1 - \[Tau]]\[Conjugate]*phaseFunc[t1]*Exp[-I*\[Omega]0*(t1 - \[Tau])], {t1, -\[Infinity], t2}, Method -> {"LocalAdaptive"}]];
+AbsoluteTiming[dataint1 = ParallelMap[int1[#] &, timeRange];]
+int1funcinterpolation = Interpolation[Transpose[{timeRange, dataint1}]];
+int1func[x_] = Piecewise[{{0, x < -150  || x > 150},{int1funcinterpolation[x], True}}];
+
+(*Integral 2*)
+int2[t3_] := Quiet[(-I)*NIntegrate[probeAfull[t2]*int1func[t2]*phaseFunc[t2]\[Conjugate]*Exp[I*\[Omega]0*t2], {t2, -\[Infinity], t3}, Method -> "LocalAdaptive"]];
+AbsoluteTiming[dataint2 = ParallelMap[int2[#] &, timeRange];]
+int2funcinterpolation = Interpolation[Transpose[{timeRange, dataint2}]];
+int2func[x_] = Piecewise[{{0.0, x < -150}, {int2funcinterpolation[x], -150 <= x <= 150}, {Chop[int2funcinterpolation[150], 10^-6], x > 150}}];
+
+(*Integral 3*)
+int3[t_] := Quiet[(-I)*NIntegrate[gate1Afull[t3 - \[Tau]]*int2func[t3]*phaseFunc[t3]*Exp[I*\[Omega]0*(t3 - \[Tau])], {t3, -\[Infinity], t}, Method -> "LocalAdaptive"]*phaseFunc[t]\[Conjugate]];
+AbsoluteTiming[dataint3 = ParallelMap[int3[#] &, timeRange];]
+term6envelop = 0.5*dataint3*Exp[-I*\[Omega]0*timeRange];
+
+
+
+(*Combining all the terms*)
+totalenvelop = term1envelop + term2envelop + term3envelop + term4envelop + term5envelop + term6envelop;
+Export["datafile.csv", MapThread[Append, {Import["datafile.csv"], totalenvelop}]];
+
+Quit

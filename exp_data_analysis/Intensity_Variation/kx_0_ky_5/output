@@ -1,0 +1,216 @@
+Mathematica 12.3.1 Kernel for Linux x86 (64-bit)
+Copyright 1988-2021 Wolfram Research, Inc.
+
+In[1]:= 
+In[2]:= 
+FrontEndObject::notavail: 
+   A front end is not available; certain operations require a front end.
+
+SetDirectory::badfile: 
+   The specified argument $Failed should be a valid string or File.
+
+In[3]:= In[3]:= 
+In[4]:= 
+In[5]:= 
+In[6]:= 
+In[7]:=                         
+In[8]:= 
+In[9]:= 
+In[10]:= 
+In[11]:= 
+In[12]:= 
+In[13]:= In[13]:= 
+In[14]:= 
+In[15]:= 
+In[16]:= 
+In[17]:=                            
+In[18]:= 
+In[19]:= 
+In[20]:= 
+In[21]:= 
+In[22]:= 
+In[23]:= In[23]:= In[23]:= In[23]:= 
+In[24]:= In[24]:=          
+In[25]:=          
+In[26]:= 
+In[27]:= In[27]:= 
+In[28]:= 
+In[29]:= 
+In[30]:= In[30]:= 
+In[31]:= In[31]:= 
+FindMaximum::lstol: 
+   The line search decreased the step size to within the tolerance specified
+     by AccuracyGoal and PrecisionGoal but was unable to find a sufficient
+     increase in the function. You may need more than MachinePrecision
+     digits of working precision to meet these tolerances.
+
+FindMaximum::lstol: 
+   The line search decreased the step size to within the tolerance specified
+     by AccuracyGoal and PrecisionGoal but was unable to find a sufficient
+     increase in the function. You may need more than MachinePrecision
+     digits of working precision to meet these tolerances.
+
+FindMaximum::lstol: 
+   The line search decreased the step size to within the tolerance specified
+     by AccuracyGoal and PrecisionGoal but was unable to find a sufficient
+     increase in the function. You may need more than MachinePrecision
+     digits of working precision to meet these tolerances.
+
+General::stop: Further output of FindMaximum::lstol
+     will be suppressed during this calculation.
+
+In[32]:= In[32]:= 
+In[33]:= 
+In[34]:= In[34]:=          
+In[35]:=          
+In[36]:= In[36]:= 
+In[37]:= In[37]:= 
+In[38]:= In[38]:= 
+In[39]:= In[39]:= 
+In[40]:= In[40]:= 
+In[41]:= In[41]:= In[41]:= In[41]:= 
+In[42]:= In[42]:= 
+Out[42]= 0
+
+In[43]:= In[43]:= 
+In[44]:= In[44]:= 
+In[45]:= 
+In[46]:= 
+In[47]:= In[47]:= 
+In[48]:= In[48]:= 
+In[49]:= In[49]:= 
+Out[49]= {23.0849, Null}
+
+In[50]:= In[50]:= 
+In[51]:= In[51]:= 
+In[52]:= In[52]:= 
+In[53]:= 
+In[54]:= In[54]:= 
+In[55]:= 
+In[56]:= 
+Out[56]= {18.0578, Null}
+
+In[57]:= 
+In[58]:= 
+In[59]:= In[59]:= 
+In[60]:= 
+In[61]:= 
+Out[61]= {15.3453, Null}
+
+In[62]:= 
+In[63]:= 
+In[64]:= In[64]:= 
+In[65]:= 
+In[66]:= 
+Out[66]= {16.0758, Null}
+
+In[67]:= 
+In[68]:= In[68]:= In[68]:= 
+In[69]:= In[69]:= 
+In[70]:= 
+In[71]:= 
+Out[71]= {18.0698, Null}
+
+In[72]:= 
+In[73]:= 
+In[74]:= In[74]:= 
+In[75]:= 
+In[76]:= 
+Out[76]= {15.8758, Null}
+
+In[77]:= 
+In[78]:= 
+In[79]:= In[79]:= 
+In[80]:= 
+In[81]:= 
+Out[81]= {16.0683, Null}
+
+In[82]:= 
+In[83]:= In[83]:= In[83]:= 
+In[84]:= In[84]:= 
+In[85]:= 
+In[86]:= 
+Out[86]= {31.1649, Null}
+
+In[87]:= 
+In[88]:= 
+In[89]:= In[89]:= 
+In[90]:= 
+In[91]:= 
+Out[91]= {15.2286, Null}
+
+In[92]:= 
+In[93]:= 
+In[94]:= In[94]:= 
+In[95]:= 
+In[96]:= 
+Out[96]= {15.0473, Null}
+
+In[97]:= 
+In[98]:= In[98]:= In[98]:= 
+In[99]:= In[99]:= 
+In[100]:= 
+In[101]:= 
+Out[101]= {25.8165, Null}
+
+In[102]:= 
+In[103]:= 
+In[104]:= In[104]:= 
+In[105]:= 
+In[106]:= 
+Out[106]= {15.0741, Null}
+
+In[107]:= 
+In[108]:= 
+In[109]:= In[109]:= 
+In[110]:= 
+In[111]:= 
+Out[111]= {15.3512, Null}
+
+In[112]:= 
+In[113]:= In[113]:= In[113]:= 
+In[114]:= In[114]:= 
+In[115]:= 
+In[116]:= 
+Out[116]= {18.1628, Null}
+
+In[117]:= 
+In[118]:= 
+In[119]:= In[119]:= 
+In[120]:= 
+In[121]:= 
+Out[121]= {16.1635, Null}
+
+In[122]:= 
+In[123]:= 
+In[124]:= In[124]:= 
+In[125]:= 
+In[126]:= 
+Out[126]= {15.2496, Null}
+
+In[127]:= 
+In[128]:= In[128]:= In[128]:= 
+In[129]:= In[129]:= 
+In[130]:= 
+In[131]:= 
+Out[131]= {17.9553, Null}
+
+In[132]:= 
+In[133]:= 
+In[134]:= In[134]:= 
+In[135]:= 
+In[136]:= 
+Out[136]= {16.1715, Null}
+
+In[137]:= 
+In[138]:= 
+In[139]:= In[139]:= 
+In[140]:= 
+In[141]:= 
+Out[141]= {15.6502, Null}
+
+In[142]:= 
+In[143]:= In[143]:= In[143]:= In[143]:= 
+In[144]:= 
+In[145]:= 
+In[146]:= In[146]:= 

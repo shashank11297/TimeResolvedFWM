@@ -1,0 +1,1 @@
+slurmstepd: error: *** JOB 28155094 ON bell-b003 CANCELLED AT 2023-09-23T14:29:35 DUE TO TIME LIMIT ***

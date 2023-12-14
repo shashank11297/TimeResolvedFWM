@@ -1,0 +1,29 @@
+\[Omega]0 = 2.35;(*carrier wave frequency in rad/fs*)
+
+(*Gate data*)
+gatedata = Import["~/num_cal/Pulse Data/Gate_ETemporal.dat", "Table"];
+gate1TimeDomain = gatedata[[All, 1]];
+gate1Efield = Interpolation[Transpose[{gate1TimeDomain, gatedata[[All, 2]]*Exp[I*gatedata[[All, 3]]]}]];
+gate1Avector[t_] := -NIntegrate[gate1Efield[x]*Exp[I*\[Omega]0*x], {x, Min[gate1TimeDomain], t}, Method -> {"LevinRule", "LevinFunctions" -> {"ExpRelated"}}];
+gate1TimeRange = Range[Min[gate1TimeDomain], Max[gate1TimeDomain], 0.1];
+AbsoluteTiming[gate1Adata = ParallelMap[gate1Avector[#] &, gate1TimeRange];]
+gate1Aenvelopdata = gate1Adata*Exp[-I*\[Omega]0*gate1TimeRange];
+(* gate1Aenvelopfn = Interpolation[Transpose[{gate1TimeRange, gate1Aenvelopdata}]];
+gate1Afull[t_] := Piecewise[{{0.0, t < Min[gate1TimeDomain]}, {gate1Aenvelopfn[t], Min[gate1TimeDomain] <= t <= Max[gate1TimeDomain]}, {0.0, t > Max[gate1TimeDomain]}}] *)
+
+
+(*Probe data*)
+probedata = Import["~/num_cal/Pulse Data/Probe_ETemporal.dat", "Table"];
+probeTimeDomain = probedata[[All, 1]];
+probeEfield = Interpolation[Transpose[{probeTimeDomain, probedata[[All, 	2]]*Exp[I*probedata[[All, 3]]]}]];
+probeAvector[t_] := -NIntegrate[probeEfield[x]*Exp[I*\[Omega]0*x], {x, Min[probeTimeDomain], t}, Method -> {"LevinRule", "LevinFunctions" -> {"ExpRelated"}, "Points" -> 2}];
+probeTimeRange = Range[Min[probeTimeDomain], Max[probeTimeDomain], 0.1];
+probeAdata = ParallelMap[probeAvector[#] &, probeTimeRange];
+probeAenvelopdata = probeAdata*Exp[-I*\[Omega]0*probeTimeRange];
+(* probeAenvelopfn = Interpolation[Transpose[{probeTimeRange, probeAenvelopdata}]];
+probeAfull[t_] := Piecewise[{{0.0, t < Min[probeTimeDomain]}, {probeAenvelopfn[t], Min[probeTimeDomain] <= t <= Max[probeTimeDomain]}, {0.0, t > Max[probeTimeDomain]}}]; *)
+
+SetDirectory[NotebookDirectory[]];
+Export["gate_data.csv", Transpose[{gate1TimeRange, gate1Aenvelopdata}]];
+Export["probe_data.csv", Transpose[{probeTimeRange, probeAenvelopdata}]];
+Quit
